@@ -14,7 +14,7 @@ async def intercept_request(req):
     else:
         await req.continue_()
 
-async def main():
+async def getGame():
     browser = await launch(
         headless=False,
         executablePath=r"C:\Program Files\Google\Chrome\Application\chrome.exe",
@@ -33,7 +33,7 @@ async def main():
     print(headline)
 
     #._ys_1rml24t ._ys_zxgo4o:nth-of-type(2) ._ys_1dbz5fh
-    await asyncio.sleep(2)
+    await asyncio.sleep(3)
     await asyncio.gather(
         page.waitForNavigation(),
         page.click("a#TEAM_SCHEDULE")
@@ -41,13 +41,13 @@ async def main():
   
     
     #[role] ._ys_1ensitm:nth-of-type(2)
-    await asyncio.sleep(2)
+    await asyncio.sleep(3)
     await asyncio.gather(
         page.waitForNavigation(),
-        page.click("[role] ._ys_1ensitm:nth-of-type(2)")
+        page.click("[role] ._ys_1w3oe7v:nth-of-type(2)")
     )
     
-    await asyncio.sleep(2)
+    await asyncio.sleep(3)
     #div:nth-of-type(1) > ._ys_l5y8fj
     await page.waitForSelector("div:nth-of-type(1) > ._ys_l5y8fj")
     await page.click("div:nth-of-type(1) > ._ys_l5y8fj")
@@ -84,4 +84,4 @@ async def main():
 
     await browser.close()
 
-asyncio.run(main())
+    return headline, gameSum
